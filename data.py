@@ -323,9 +323,17 @@ class Parser:
         return res.success(left)
 
 ########
-#
+# RUNTIME RESULT
 ########
 
+class RTResult:
+    def __init__(self):
+        self.value = None
+        self.error = None
+    
+    def register(self, res):
+        if res.error: self.error = res.error
+        
 
 
 ########
