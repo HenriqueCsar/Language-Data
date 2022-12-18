@@ -294,7 +294,7 @@ class Parser:
 			res.register(self.advance())
 			factor = res.register(self.factor())
 			if res.error: return res
-			return res.success(UnaryOpNode(tok, factor))
+			return res.success(UnaryOpNode(tok, factor))al
 
 
 
