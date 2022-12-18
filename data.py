@@ -333,7 +333,10 @@ class RTResult:
     
     def register(self, res):
         if res.error: self.error = res.error
-        
+        return res.value
+
+    
+
 
 
 ########
