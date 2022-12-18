@@ -289,9 +289,12 @@ class Parser:
         res = ParseResult()
         tok = self.current_tok
 
-        #Implementing addition and subtraction
+        #"Implementing addition and subtraction"
         if tok.type in (TT_PLUS, TT_MINUS):
-            res.
+			res.register(self.advance())
+			factor = res.register(self.factor())
+			if res.error: return res
+			return res.success(UnaryOpNode(tok, factor))
 
 
 
