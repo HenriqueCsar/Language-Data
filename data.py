@@ -52,6 +52,9 @@ class IlegalCharError(Error):
     def __init__(self, pos_start, pos_end, details):
         super().__init__(pos_start, pos_end,'Illegal Character', details)
 
+class InvalidSyntaxError(Error):
+	def __init__(self, pos_start, pos_end, details=''):
+		super().__init__(pos_start, pos_end, 'Invalid Syntax', details)
 
 ######
 ##Position
@@ -258,6 +261,29 @@ class ParseResult:
 ########
 #PARSE
 ########
+
+class Parser:
+    def __init__(self, tokens):
+        self.tokens = tokens
+        self.tok_idx = -1
+        self.advance()
+
+    def advance(self, ):
+        self.tok_idx += 1
+        if(self.tok_idx < len(self.tokens)):
+            self.current_tok = self.tokens[self.tok_idx]
+        return self.current_tok
+
+    def parse(self):
+        res = self.expr()
+        if not res.error and self.current_tok.type != TT_EOF:
+            return res.failure(InvalidSyntaxError(
+                self.current_tok.pos_start, 
+                self.current_tok.pos_end,
+                "Expected '+', '-', '*', '/'"
+            ))
+        return res
+
 
 
 
