@@ -335,7 +335,9 @@ class RTResult:
         if res.error: self.error = res.error
         return res.value
 
-    
+    def sucess(self, value):
+        self.value = value
+        return self
 
 
 
