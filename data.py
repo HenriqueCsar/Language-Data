@@ -285,6 +285,16 @@ class Parser:
         return res
 
 
+    def factor(self):
+        res = ParseResult()
+        tok = self.current_tok
+
+        #Implementing addition and subtraction
+        if tok.type in (TT_PLUS, TT_MINUS):
+            res.
+
+
+
 
 
 ########
