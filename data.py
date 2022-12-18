@@ -291,12 +291,40 @@ class Parser:
 
         #"Implementing addition and subtraction"
         if tok.type in (TT_PLUS, TT_MINUS):
-			res.register(self.advance())
-			factor = res.register(self.factor())
-			if res.error: return res
-			return res.success(UnaryOpNode(tok, factor))al
+            res.register(self.advance())
+            factor = res.register(self.factor())
+            if res.error: return res
+            return res.success(UnaryOpNode(tok, factor))
+
+        return res.failure(InvalidSyntaxError(
+            tok.pos_start, tok.pos_end,
+            "Expected int or float"
+        ))
 
 
+    def term(self):
+        return self.bin_op(self.factor, (TT_MUL, TT_DIV))
+
+    def expr(self):
+        return self.bin_op(self.term, (TT_PLUS, TT_MINUS))
+
+    def bin_op(self, func, ops):
+        res = ParseResult()
+        left = res.register(func())
+        if res.error: return res
+        
+        while self.current_tok.type in ops:
+            op_tok = self.current_tok
+            res.register(self.advance())
+            right = res.register(func())
+            if res.error: return res
+            left = BinOpNode(left, op_tok, right)
+
+        return res.success(left)
+
+########
+#
+########
 
 
 
@@ -310,4 +338,13 @@ def run(fn, text):
     # lexer = Lexer(text)
     tokens, error = Lexer(fn, text).make_tokens()
 
+
+	# Generate AST
+    parser = Parser(tokens)
+    ast = parser.parse()
+    if ast.error: return None, ast.error
+
+
     return tokens, error
+
+
