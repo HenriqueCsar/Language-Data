@@ -300,6 +300,10 @@ class Parser:
             factor = res.register(self.factor())
             if res.error: return res
             return res.success(UnaryOpNode(tok, factor))
+        
+        elif tok.type in (TT_INT, TT_FLOAT):
+            res.register(self.advance())
+            return res.success(NumberNode(tok))
 
         return res.failure(InvalidSyntaxError(
             tok.pos_start, tok.pos_end,
