@@ -358,7 +358,8 @@ class Number:
         self.pos_end = pos_end
         return self
     
-    
+    def set_context(self, context=None):
+        
 
 ########
 ##
