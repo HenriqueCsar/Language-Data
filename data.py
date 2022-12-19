@@ -469,7 +469,7 @@ class Interpreter:
         if error:
             return res.failure(error)
         else:
-            return res.sucess(number.set_pos(node.pos_start, node.pos_end))
+            return res.success(number.set_pos(node.pos_start, node.pos_end))
 
 
 
