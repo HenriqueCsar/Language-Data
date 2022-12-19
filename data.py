@@ -439,7 +439,7 @@ class Interpreter:
 
         left = res.register(self.visit(node.left_node, context))
         if res.error: return res
-        right = res.register(self.visit(node.rigth_node, context))
+        right = res.register(self.visit(node.right_node, context))
         if res.error: return res
 
         if node.op_tok.type == TT_PLUS:
