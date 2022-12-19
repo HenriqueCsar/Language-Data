@@ -431,6 +431,14 @@ class Interpreter:
         elif node.op_tok_type == TT_MUL:
             result, error = left.multed_by(right)
 
+        if error:
+            return res.failure(error)
+        else:
+            return res.success(result.set_pos(node.pos_start, node.pos_end))
+
+    def visit_UnaryOpNode(self, node, context):
+        
+
 
 
 ########
