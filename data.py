@@ -416,7 +416,10 @@ class Interpreter:
             Number(node.tok.value).set_context(context).set_pos(node.pos_start, node.pos_end)
         )
 
-    
+    def visit_BinOpNode(self, node, context):
+        res = RTResult()
+
+        
 
 
 ########
