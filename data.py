@@ -470,6 +470,9 @@ def run(fn, text):
     ast = parser.parse()
     if ast.error: return None, ast.error
 
+    # Run Pragram
+    Interpreter = Interpreter()
+        
 
     return tokens, error
 
