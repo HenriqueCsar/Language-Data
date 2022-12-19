@@ -472,7 +472,8 @@ def run(fn, text):
 
     # Run Pragram
     interpreter = Interpreter()
-    context = Context('<program>') 
+    context = Context('<program>')
+    result = interpreter.visit(ast.node, context) 
 
     return tokens, error
 
