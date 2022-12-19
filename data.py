@@ -363,7 +363,8 @@ class Number:
         return self
 
     def added_to(self, other):
-        if isinstance(other, Number)
+        if isinstance(other, Number):
+            return Number(self.value + other.value).set_context(self.context)
 
 ########
 ##
