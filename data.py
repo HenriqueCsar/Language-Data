@@ -419,7 +419,9 @@ class Interpreter:
     def visit_BinOpNode(self, node, context):
         res = RTResult()
 
-        
+        left = res.register(self.visit(node.left_node, context))
+        if res.error: return res
+        right = res.register(self.visit(node.rigth_node, context))
 
 
 ########
