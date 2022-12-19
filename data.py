@@ -442,6 +442,7 @@ class Interpreter:
         number = res.register(self.visit(node.node, context))
         if res.error: return res
 
+        error = None
         
 
 
