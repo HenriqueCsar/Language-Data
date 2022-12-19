@@ -360,6 +360,7 @@ class Number:
     
     def set_context(self, context=None):
         self.context = context
+        return self
 
 ########
 ##
