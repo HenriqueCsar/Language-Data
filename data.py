@@ -475,6 +475,8 @@ def run(fn, text):
     context = Context('<program>')
     result = interpreter.visit(ast.node, context) 
 
+    return result.value, result.error
+
     return tokens, error
 
 
