@@ -339,10 +339,13 @@ class RTResult:
         self.value = value
         return self
 
-    def failure(self, error):
+    def failure(self    , error):
         self.error = error
         return self
 
+########
+#VALUES
+########
 
 
 ########
