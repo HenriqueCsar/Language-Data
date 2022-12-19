@@ -445,9 +445,9 @@ class Interpreter:
 
         if node.op_tok.type == TT_PLUS:
             result, error = left.added_to(right)
-        elif node.op_tok_type == TT_MINUS:
+        elif node.op_tok.type == TT_MINUS:
             result, error = left.subbed_by(right)
-        elif node.op_tok_type == TT_MUL:
+        elif node.op_tok.type == TT_MUL:
             result, error = left.multed_by(right)
 
         if error:
