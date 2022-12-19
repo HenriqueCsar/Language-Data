@@ -364,7 +364,7 @@ class Number:
 
     def added_to(self, other):
         if isinstance(other, Number):
-            return Number(self.value + other.value).set_context(self.context)
+            return Number(self.value + other.value).set_context(self.context), None
 
 ########
 ##
