@@ -472,7 +472,7 @@ def run(fn, text):
 
     # Run Pragram
     interpreter = Interpreter()
-    context = Context()    
+    context = Context('<program>') 
 
     return tokens, error
 
