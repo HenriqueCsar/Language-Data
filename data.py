@@ -309,7 +309,9 @@ class Parser:
             res.register(self.advance())
             expr = res.register(self.expr())
             if res.error: return res
-            if self.current_tok.type == TT_RPAREN
+            if self.current_tok.type == TT_RPAREN:
+                res.register(self.advance())
+                return res.success(expr)
 
         return res.failure(InvalidSyntaxError(
             tok.pos_start, tok.pos_end,
