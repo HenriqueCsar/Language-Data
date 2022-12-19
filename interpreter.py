@@ -5,4 +5,4 @@ while True:
     result, error = data.run('<stdin>',text)
 
     if error: print(error.as_string())
-    else: print(result)s
+    else: print(result)
