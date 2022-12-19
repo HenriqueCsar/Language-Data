@@ -494,6 +494,5 @@ def run(fn, text):
 
     return result.value, result.error
 
-    return tokens, error
 
 
