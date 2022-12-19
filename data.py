@@ -437,6 +437,11 @@ class Interpreter:
             return res.success(result.set_pos(node.pos_start, node.pos_end))
 
     def visit_UnaryOpNode(self, node, context):
+        res = RTResult()
+
+        number = res.register(self.visit(node.node, context))
+        if res.error: return res
+
         
 
 
