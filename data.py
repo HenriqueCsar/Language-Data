@@ -359,7 +359,7 @@ class Number:
         return self
     
     def set_context(self, context=None):
-        
+        self.context = context
 
 ########
 ##
