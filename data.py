@@ -362,6 +362,9 @@ class Number:
         self.context = context
         return self
 
+    def added_to(self, other):
+        if isinstance(other, Number)
+
 ########
 ##
 ## RUN
