@@ -471,8 +471,8 @@ def run(fn, text):
     if ast.error: return None, ast.error
 
     # Run Pragram
-    Interpreter = Interpreter()
-        
+    interpreter = Interpreter()
+    context = Context()    
 
     return tokens, error
 
