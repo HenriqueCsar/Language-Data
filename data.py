@@ -198,9 +198,9 @@ class Lexer:
 
         if dot_count == 0:
             # print(num_str)
-            return Token(TT_INT, int(num_str, pos_start=self.pos))
+            return Token(TT_INT, int(num_str), pos_start, self.pos)
         else:
-            return Token(TT_FLOAT, float(num_str, pos_start=self.pos))
+            return Token(TT_FLOAT, float(num_str), pos_start, self.pos)
 
 ########
 ##  NODES
