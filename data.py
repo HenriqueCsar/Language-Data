@@ -443,7 +443,14 @@ class Interpreter:
         if res.error: return res
 
         error = None
-        
+
+        if node.op_tok.type == TT_MINUS:
+            number, error = number.multed_by(Number(-1))
+
+        if error:
+            return res.failure(error)
+        else:
+            return res.sucess(number.set_pos(node.pos_start, node.pos_end))
 
 
 
