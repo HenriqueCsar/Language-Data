@@ -422,6 +422,12 @@ class Interpreter:
         left = res.register(self.visit(node.left_node, context))
         if res.error: return res
         right = res.register(self.visit(node.rigth_node, context))
+        if res.error: return res
+
+        if node.op_tok.type == TT_PLUS:
+            result, error = left.added_to(right)
+
+
 
 
 ########
